@@ -37,8 +37,8 @@ pipeline {
 }
       stage ('deployment trigger')
          steps {
-             build 'hol-pipeline_CD'
-         }
+           build 'hol-pipeline_CD' 
+           }
     }
 }
 
