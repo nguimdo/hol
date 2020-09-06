@@ -1,11 +1,11 @@
 pipeline {
     agent any
+    triggers {
+  pollSCM '* * * * *'
+}
     tools {
         maven 'M2_HOME'
     }
-    triggers {
-  pollSCM ignorePostCommitHooks: true, scmpoll_spec: '* * * * *'
-}
 
     stages {
         stage('build') {
@@ -35,6 +35,10 @@ pipeline {
 
     }
 }
+      stage ('deployment trigger')
+         steps {
+             build 'hol-pipeline_CI'
+         }
     }
 }
     
